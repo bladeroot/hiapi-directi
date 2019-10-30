@@ -37,7 +37,7 @@ class PollModule extends AbstractModule
         return empty($polls) ? true : $polls;
     }
 
-    protected function _pollsGetTransferMessage($polls = [], $domains = []) : array
+    protected function _pollsGetIncomingMessage($polls = [], $domains = []) : array
     {
         foreach ($domains as $id => $domain) {
             $info = $this->base->domainInfo($domain);
@@ -74,6 +74,12 @@ class PollModule extends AbstractModule
                 ], true);
             }
         }
+
+        return $polls;
+    }
+
+    protected function _pollsGetExpiredMessage($polls = [], $domains) : array
+    {
 
         return $polls;
     }

@@ -122,6 +122,7 @@ class HttpClient
     public function fetchPost (string $command, array $data=null): Response
     {
         $query = $this->prepareQuery($data);
+
         $res = $this->client->request('POST',  $command, [
             'body' => $query,
             'headers' => [

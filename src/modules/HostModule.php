@@ -42,7 +42,7 @@ class HostModule extends AbstractModule
     {
         return $this->post_orderid('domains/add-cns',$row,[
             'host->cns'         => 'ns',
-            'ips->ip'           => 'ips',
+            'ips->ip'           => 'aips',
         ]);
     }
 
@@ -82,10 +82,11 @@ class HostModule extends AbstractModule
 
             $data['old-ip'] = [ $change ];
 
+
             $res[] = $this->post_orderid('domains/modify-cns-ip', $data, [
                 'host->cns'         => 'ns',
-                'ips->new-ip'       => 'ips',
-                'old-ip->old-ip'    => 'ips',
+                'ips->new-ip'       => 'aips',
+                'old-ip->old-ip'    => 'aips',
             ]);
         }
 
